@@ -1,14 +1,17 @@
 @font-face {
-    font-family: sfproreg;
-    src: url("./assets/fonts/sf-pro-display_regular.ttf");
+  font-family: sfproreg;
+  src: url("./assets/fonts/sf-pro-display_regular.ttf");
 }
 
 @font-face {
-    font-family: sfprosem;
-    src: url("./assets/fonts/sf-pro-display_semibold.ttf");
+  font-family: sfprosem;
+  src: url("./assets/fonts/sf-pro-display_semibold.ttf");
 }
-
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.b {
+  border: 2px solid red;
+}

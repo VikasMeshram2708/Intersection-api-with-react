@@ -1,12 +1,14 @@
-import Hero from "../components/Hero";
+import Hero from "../components/Landing/Hero";
+import Highlights from "../components/Landing/Highlights";
 
 export default function Home() {
   return (
-    <section className="min-h-screen">
-      <div className="flex justify-center">
-        {/* Hero section */}
-        <Hero />
-      </div>
+    <section className="">
+      {/* Hero section */}
+      <Hero />
+
+      {/* Highlights section */}
+      <Highlights />
     </section>
   );
 }

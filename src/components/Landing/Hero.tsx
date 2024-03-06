@@ -1,55 +1,8 @@
-import gsap from "gsap";
-import { useRef, useEffect } from "react";
 import video from "../../assets/large.mp4";
 import Discount from "../Discount";
+import { AnimatePresence, easeIn, motion } from "framer-motion";
 
 export default function Hero() {
-  const HeroContent = useRef(null);
-
-  const heroOptions = {
-    rootMargin: "0px 0px -100px 0px",
-    threshold: 0.25,
-  };
-
-  const heroContentObserver = new IntersectionObserver(function (entries) {
-    entries.forEach((entry) => {
-      if(!entry?.isIntersecting) {
-        return;
-      }
-      gsap.to(HeroContent.current, {
-        y: 0,
-        duration: 2, // Adjust duration as needed
-      });
-      gsap.to(HeroContent.current, {
-        y: 50,
-        duration: 2, // Adjust duration as needed
-      });
-    });
-  }, heroOptions);
-
-  useEffect(() => {
-    if (HeroContent?.current) {
-      heroContentObserver.observe(HeroContent?.current);
-    }
-
-    return () => {
-      if (HeroContent?.current) {
-        heroContentObserver.unobserve(HeroContent?.current);
-      }
-    };
-  }, [heroContentObserver]);
-
-  // useEffect(() => {
-  //   gsap.to(HeroContent.current, {
-  //     y: 0,
-  //     duration: 2, // Adjust duration as needed
-  //   });
-  //   gsap.to(HeroContent.current, {
-  //     y: 50,
-  //     duration: 2, // Adjust duration as needed
-  //   });
-  // }, []);
-
   return (
     <section className="min-h-screen">
       {/* Discount section */}
@@ -57,26 +10,40 @@ export default function Hero() {
 
       {/* hero content section */}
       <div className="pt-8">
-        <div className="flex justify-center mx-auto object-cover">
-          <video src={video} autoPlay loop muted></video>
+        <div className="flex max-w-[80%] justify-center mx-auto">
+          <video
+            src={video}
+            autoPlay
+            loop
+            muted
+            className=""
+          />
         </div>
-        {/* content area */}
-        <div
-          ref={HeroContent}
-          id="hero__content"
-          className="mt-14 gap-10 flex items-center flex-col"
-        >
-          <button
-            className="bg-[#0077ED] py-2 px-6 rounded-full text-white"
-            type="button"
-          >
-            Buy
-          </button>
 
-          <p className="font-semibold text-[21px]">
-            From $799 or $33.29/mo. for 24 mo.1
-          </p>
-        </div>
+        {/* content area */}
+        <AnimatePresence>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              ease: easeIn,
+              duration: 2,
+            }}
+            exit={{ opacity: 0 }}
+            id="hero__content"
+            className="mt-14 gap-10 flex flex-col items-center sm:flex-row sm:justify-center"
+          >
+            <button
+              className="bg-[#0077ED] py-2 px-6 rounded-full text-white sm:mr-4"
+              type="button"
+            >
+              Buy
+            </button>
+            <p className="font-semibold text-[16px] sm:text-[21px]">
+              From $799 or $33.29/mo. for 24 mo.1
+            </p>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );

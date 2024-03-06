@@ -12,6 +12,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
+* {
+  font-family: sfproreg;
+}
 .b {
   border: 2px solid red;
 }

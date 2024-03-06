@@ -9,7 +9,8 @@ export default function Highlights() {
         return;
       }
 
-      entry.target.classList.add("translate-x-6");
+      entry.target.classList.remove("opacity-0");
+      // entry.target.classList.add("md:translate-x-6");
       entry.target.classList.add("duration-1000");
       entry.target.classList.add("ease-in");
       entry.target.classList.add("delay-700");
@@ -40,15 +41,15 @@ export default function Highlights() {
     <section className="bg-slate-900 min-h-screen w-full">
       <div
         ref={highlightContainer}
-        className="flex items-center gap-10 max-w-[80%] pt-52 mx-auto"
+        className="flex lg:flex-nowrap lg:px-10 opacity-0 flex-wrap p-3 items-center gap-10 overflow-hidden pt-52 mx-auto"
       >
         {Array.from({ length: 3 }, (_, index) => {
           return (
             <div key={index} className="text-white text-justify">
-              <h1 className="text-[1.75rem] font-semibold text-orange-500">
+              <h1 className="sm:text-[1.75rem] font-semibold text-orange-500">
                 Lorem ipsum dolor sit amet.
               </h1>
-              <p className="text-[1.25rem]">
+              <p className="sm:text-[1.25rem]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Non
                 vitae cum labore, tempora, quas quibusdam illum eligendi
                 possimus exercitationem ipsum dolores dolorem facilis officia.

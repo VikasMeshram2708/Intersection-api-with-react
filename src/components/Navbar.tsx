@@ -5,8 +5,8 @@ import { BsBag } from "react-icons/bs";
 
 export default function Navbar() {
   return (
-    <nav className="flex justify-center p-3 text-[12px] items-center apple bg-[#ffffff] font-['sfproreg']">
-      <ul className="flex gap-8 items-center">
+    <nav className="flex flex-wrap justify-center p-3 text-[12px] items-center apple bg-[#ffffff] font-['sfproreg']">
+      <ul className="flex flex-wrap gap-8 items-center">
         <FaApple size={20} />
         <li>
           <NavLink to="/">Store</NavLink>
